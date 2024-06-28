@@ -38,7 +38,7 @@ jobs:
         run: |
           SHA256=$(cat release/sha256.txt)
           TAG=${GITHUB_REF/refs\/tags\//}
-          sed -i "s|uri: .*|uri: \"https://github.com/${{ github.repository }}/releases/download/${TAG}/my-krew-plugin.tar.gz\"|" plugin.yaml
+          sed -i "s|uri: .*|uri: \"https://github.com/${{ github.repository }}/releases/download/${TAG}/registry-plugin.tar.gz\"|" plugin.yaml
           sed -i "s|sha256: .*|sha256: \"${SHA256}\"|" plugin.yaml
           sed -i "s|version: .*|version: \"${TAG}\"|" plugin.yaml
           cp plugin.yaml release/plugin.yaml
