@@ -12,7 +12,8 @@ spec:
         matchLabels:
           os: linux
           arch: amd64
-      uri: "https://github.com/maxyloon/registry-plugin/releases/download/lastest/registry-plugin.tgz"  # Replace with the actual URL of the tar.gz file
+      uri: "https://github.com/maxyloon/registry-plugin/releases/download/v0.1.0/registry-plugin.tar.gz"
+      sha256: "placeholder"
       bin: kubectl-registry.sh
       files:
         - from: "*"

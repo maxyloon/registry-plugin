@@ -29,6 +29,27 @@ jobs:
           mkdir -p release
           tar -czvf release/registry-plugin.tar.gz manifests/ plugin.yaml kubectl-registry.sh
 
+      - name: Generate SHA256 checksum
+        id: generate_sha256
+        run: |
+            sha256sum release/registry-plugin.tar.gz | awk '{ print $1 }' > release/sha256.txt
+
+      - name: Update plugin.yaml with checksum and tag
+        run: |
+          SHA256=$(cat release/sha256.txt)
+          TAG=${GITHUB_REF/refs\/tags\//}
+          sed -i "s|uri: .*|uri: \"https://github.com/${{ github.repository }}/releases/download/${TAG}/my-krew-plugin.tar.gz\"|" plugin.yaml
+          sed -i "s|sha256: .*|sha256: \"${SHA256}\"|" plugin.yaml
+          sed -i "s|version: .*|version: \"${TAG}\"|" plugin.yaml
+          cp plugin.yaml release/plugin.yaml
+      - name: Commit updated plugin.yaml
+        run: |
+            git config --global user.name "github-actions[bot]"
+            git config --global user.email "github-actions[bot]@users.noreply.github.com"
+            git add plugin.yaml
+            git commit -m "Update plugin.yaml for release ${TAG}"
+            git push
+
       - name: Upload release asset
         uses: actions/upload-artifact@v3
         with:
