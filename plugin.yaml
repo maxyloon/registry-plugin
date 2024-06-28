@@ -3,7 +3,7 @@ kind: Plugin
 metadata:
   name: registry
 spec:
-  version: "v0.1.1"
+  version: "<VERSION>"
   shortDescription: "A kubectl plugin to deploy a docker registry in a local Kubernetes cluster"
   description: "This plugin deploys and deletes a Docker registry in your local Kubernetes cluster."
   homepage: "https://github.com/maxyloon/registry-plugin"  # Replace with your actual homepage if available
