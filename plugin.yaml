@@ -12,8 +12,8 @@ spec:
         matchLabels:
           os: linux
           arch: amd64
-      uri: "https://github.com/maxyloon/registry-plugin/releases/download/v0.1.0/registry-plugin.tar.gz"
-      sha256: "placeholder"
+      uri: "https://github.com/maxyloon/registry-plugin/releases/download/v0.1.1/my-krew-plugin.tar.gz"
+      sha256: "3658534f5a9e3401fbe11c6b5d574c39d246fe52ab0358c651277e386142cfec"
       bin: kubectl-registry.sh
       files:
         - from: "*"
