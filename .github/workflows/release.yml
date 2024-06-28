@@ -48,7 +48,8 @@ jobs:
             git config --global user.email "github-actions[bot]@users.noreply.github.com"
             git add plugin.yaml
             git commit -m "Update plugin.yaml for release ${TAG}"
-            git push
+            git push origin HEAD:main 
+
 
       - name: Upload release asset
         uses: actions/upload-artifact@v3
