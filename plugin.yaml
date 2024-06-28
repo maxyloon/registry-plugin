@@ -3,7 +3,7 @@ kind: Plugin
 metadata:
   name: registry
 spec:
-  version: "v0.1.3"
+  version: "v0.1.4"
   shortDescription: "A kubectl plugin to deploy a docker registry in a local Kubernetes cluster"
   description: "This plugin deploys and deletes a Docker registry in your local Kubernetes cluster."
   homepage: "https://github.com/maxyloon/registry-plugin"  # Replace with your actual homepage if available
@@ -12,8 +12,8 @@ spec:
         matchLabels:
           os: linux
           arch: amd64
-      uri: "https://github.com/maxyloon/registry-plugin/releases/download/v0.1.3/registry-plugin.tar.gz"
-      sha256: "c335de366702712deafcb46cc03c4d3f9286753bfc460c7f7f4b60b83c5fc49f"
+      uri: "https://github.com/maxyloon/registry-plugin/releases/download/v0.1.4/registry-plugin.tar.gz"
+      sha256: "4762f39cc3d9f89a4c8e7e20e75c4cd8904895900445b5d217202dec483702ec"
       bin: kubectl-registry.sh
       files:
         - from: "*"
